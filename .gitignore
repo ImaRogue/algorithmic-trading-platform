@@ -1,0 +1,32 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Environment files
+.env
+config/.env.api
+*.env
+
+# Data files with sensitive info
+data/trading_system.db
+data/logs/
+data/reports/
+data/*_performance.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.backup
+*.bak

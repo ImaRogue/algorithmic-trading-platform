@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-07-21T10:53:28.555184",
+  "market_open": "2025-07-22T09:30:00",
+  "validation_results": {
+    "environment": "PASSED",
+    "api_connections": {
+      "finnhub": "CONFIGURED",
+      "fmp": "CONFIGURED",
+      "alpha_vantage": "CONFIGURED",
+      "yfinance_backup": "CONNECTED"
+    },
+    "database": "HEALTHY",
+    "dashboard": {
+      "components/imrogue_dashboard.py": "EXISTS",
+      "components/monitoring_dashboard.py": "EXISTS"
+    },
+    "security": "CONFIGURED",
+    "performance": "FAILED",
+    "risk_controls": "CONSERVATIVE",
+    "monitoring": "READY",
+    "emergency": "READY",
+    "trading_params": "CONFIRMED",
+    "portfolio": "INITIALIZED"
+  },
+  "score": "8/11",
+  "ready_for_testing": false
+}

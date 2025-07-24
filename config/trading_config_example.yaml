@@ -1,0 +1,52 @@
+# Trading System Configuration  
+# Phase 1B Live Validation Settings - CONSERVATIVE RISK
+
+trading:
+  mode: PAPER_TRADING
+  symbols:
+    - SPY
+    - QQQ  
+    - AAPL
+  strategy: MA_CROSSOVER_BASIC
+  update_interval: 30  # seconds
+  max_trades_per_day: 5   # Reduced from 10
+  min_trade_interval: 600  # 10 minutes (increased from 5)
+
+risk_management:
+  # CONSERVATIVE SETTINGS FOR PHASE 1B
+  risk_per_trade: 0.01      # 1% per trade (reduced from 2%)
+  stop_loss_pct: 0.03       # 3% stop loss (reduced from 5%)
+  max_positions: 2          # 2 positions max (reduced from 3)
+  max_portfolio_risk: 0.67  # ~67% max exposure (reduced from 120%)
+  daily_loss_limit: 0.03    # 3% daily limit
+  emergency_stop: true
+  real_money_mode: false
+
+portfolio:
+  initial_cash: 100000
+  currency: USD
+  position_sizing: CONSERVATIVE  # Conservative sizing mode
+
+api_settings:
+  primary_source: finnhub
+  backup_sources:
+    - fmp
+    - alpha_vantage
+    - yfinance
+  rate_limit_buffer: 0.8
+
+logging:
+  level: INFO
+  file: data/logs/trading_system.log
+  max_file_size: 10MB
+  backup_count: 5
+
+monitoring:
+  dashboard_port: 8080
+  update_frequency: 5  # seconds
+  alert_thresholds:
+    cpu_usage: 80
+    memory_usage: 80
+    api_errors: 5
+    daily_loss_pct: 2.0    # Alert at 2% daily loss
+    position_exposure: 60  # Alert at 60% exposure
