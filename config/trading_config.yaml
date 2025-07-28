@@ -1,0 +1,58 @@
+﻿# NYX Enterprise Trading Platform Configuration
+# Professional YAML configuration management
+
+system:
+  name: "NYX Enterprise Trading Platform"
+  version: "2.1.0"
+  environment: "production"
+  debug_mode: false
+  log_level: "INFO"
+
+apis:
+  finnhub:
+    enabled: true
+    tier: "premium"  # /month subscription
+    rate_limit: 300  # calls per minute
+    timeout: 5
+    base_url: "https://finnhub.io/api/v1"
+    
+  alpha_vantage:
+    enabled: true
+    tier: "free"
+    rate_limit: 5   # calls per minute
+    timeout: 10
+    base_url: "https://www.alphavantage.co/query"
+
+strategies:
+  ma_crossover:
+    enabled: true
+    name: "Moving Average Crossover"
+    short_window: 20
+    long_window: 50
+    confidence_threshold: 0.6
+    
+  meme_stock_momentum:
+    enabled: true
+    name: "Meme Stock Momentum"
+    target_symbols: ["GME", "AMC", "BBBY", "BB", "NOK"]
+    volume_threshold: 2.0     # 2x average volume
+    price_threshold: 0.05     # 5% price movement
+    confidence_threshold: 0.8
+
+risk_management:
+  max_position_size: 0.02      # 2% of portfolio per position
+  max_daily_loss: 0.05         # 5% daily stop loss
+  cvar_confidence: 0.99        # 99% CVaR calculation
+
+portfolio:
+  initial_capital: 100000      #  starting capital
+  currency: "USD"
+  benchmark: "SPY"
+  target_sharpe_ratio: 1.5
+
+gui:
+  theme: "bloomberg"           # Bloomberg Terminal styling
+  update_frequency: 1000       # milliseconds
+  window_size: "1400x900"
+  font_family: "Courier"
+  color_coding: true           # Green/red for profits/losses
