@@ -1,0 +1,17 @@
+﻿# NYX Enterprise Configuration (Sanitized for Portfolio)
+system:
+  name: NYX Enterprise Trading Platform
+  version: 2.1.0
+  environment: production
+
+apis:
+  finnhub:
+    tier: premium
+    subscription: active
+    cost: 50_per_month
+  alpha_vantage:
+    tier: backup
+    
+strategies:
+  count: 6
+  types: [MA_Crossover, RSI_Reversion, Momentum, Bollinger, Options_Flow, Meme_Momentum]
